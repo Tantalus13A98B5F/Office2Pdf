@@ -10,4 +10,5 @@
 ## Roadmap
 
 - [x] PowerPoint
-- [ ] Word
+- [x] Word
+- [ ] Performance Issue & Resource Leak
