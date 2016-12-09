@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using PowerPoint = Microsoft.Office.Interop.PowerPoint;
-using Microsoft.Office.Core;
 
 namespace Office2Pdf
 {
@@ -17,42 +15,28 @@ namespace Office2Pdf
 			//
 			InitializeComponent();
 		}
-		private bool ConvertPpt2Pdf(string src, string dst) {
-			var msoTrue = MsoTriState.msoTrue;
-			var msoFalse = MsoTriState.msoFalse;
-			var saveAsFileType = PowerPoint.PpSaveAsFileType.ppSaveAsPDF;
-			PowerPoint.ApplicationClass app = null;
-			PowerPoint.Presentation presentation = null;
-			try {
-				app = new PowerPoint.ApplicationClass();
-				presentation = app.Presentations.Open(src, msoTrue, msoFalse, msoFalse);
-				presentation.SaveAs(dst, saveAsFileType, msoTrue);
-				return true;
-			}
-			catch{
-				return false;
-			} finally {
-				if (presentation != null) {
-					presentation.Close();
-				}
-				if (app != null) {
-					app.Quit();
-				}
-			}
-		}
-		void Ppt2PdfButton_Click(object sender, EventArgs e)
-		{
+		void Multiselect(string filter, IConverter converter) {
 			var openFileDialog = new OpenFileDialog();
 			openFileDialog.Multiselect = true;
-			openFileDialog.Filter = "Slideshow (*.ppt;*.pptx)|*.ppt;*.pptx";
+			openFileDialog.Filter = filter;
 			if (openFileDialog.ShowDialog() != DialogResult.OK) {
 				return;
 			}
 			foreach (var src in openFileDialog.FileNames) {
 				string dst = System.IO.Path.ChangeExtension(src, "pdf");
-				ConvertPpt2Pdf(src, dst);
+				converter.Convert2Pdf(src, dst);
 			}
 			MessageBox.Show("转换完成！");
+		}
+		void Ppt2PdfButton_Click(object sender, EventArgs e)
+		{
+			var converter = new PowerPointConverter();
+			Multiselect("演示文稿 (*.ppt;*.pptx)|*.ppt;*.pptx", converter);
+		}
+		void Doc2PdfButton_Click(object sender, EventArgs e)
+		{
+			var converter = new WordConverter();
+			Multiselect("文档 (*.doc;*.docx)|*.doc;*.docx", converter);
 		}
 	}
 }
