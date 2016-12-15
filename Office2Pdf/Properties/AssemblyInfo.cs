@@ -1,27 +1,36 @@
-#region Using directives
-using System;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-#endregion
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle ("Office2Pdf")]
-[assembly: AssemblyDescription ("")]
-[assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("Tantalus")]
-[assembly: AssemblyCopyright ("Copyright 2016")]
-[assembly: AssemblyTrademark ("")]
-[assembly: AssemblyCulture ("")]
-// This sets the default COM visibility of types in the assembly to invisible.
-// If you need to expose a type to COM, use [ComVisible(true)] on that type.
-[assembly: ComVisible (false)]
-// The assembly version has following format :
+// 有关程序集的一般信息由以下
+// 控制。更改这些特性值可修改
+// 与程序集关联的信息。
+[assembly: AssemblyTitle("Office2Pdf")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Office2Pdf")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+//将 ComVisible 设置为 false 将使此程序集中的类型
+//对 COM 组件不可见。  如果需要从 COM 访问此程序集中的类型，
+//请将此类型的 ComVisible 特性设置为 true。
+[assembly: ComVisible(false)]
+
+// 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
+[assembly: Guid("9604e250-7c2e-428e-9d02-e32dd4f883a3")]
+
+// 程序集的版本信息由下列四个值组成: 
 //
-// Major.Minor.Build.Revision
+//      主版本
+//      次版本
+//      生成号
+//      修订号
 //
-// You can specify all the values or you can use the default the Revision and 
-// Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion ("1.0.*")]
+//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
+// 方法是按如下所示使用“*”: :
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
