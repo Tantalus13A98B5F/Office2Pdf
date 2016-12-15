@@ -11,11 +11,11 @@ namespace Office2Pdf
 
         public bool Convert2Pdf(string src, string dst)
         {
-            PowerPoint.ApplicationClass app = null;
+            PowerPoint.Application app = null;
             PowerPoint.Presentation presentation = null;
             try
             {
-                app = new PowerPoint.ApplicationClass();
+                app = new PowerPoint.Application();
                 presentation = app.Presentations.Open(src, msoTrue, msoFalse, msoFalse);
                 presentation.SaveAs(dst, saveAsPDF, msoTrue);
                 return true;

@@ -12,7 +12,7 @@ namespace Office2Pdf
             Word.Document document = null;
             try
             {
-                app = new Word.ApplicationClass();
+                app = new Word.Application();
                 document = app.Documents.Open(src);
                 if (document != null)
                 {
