@@ -1,4 +1,7 @@
 Office2Pdf/bin/*
 Office2Pdf/obj/*
 Office2Pdf/Library.ico
+CLI2PDF/bin/*
+CLI2PDF/obj/*
+Binaries/*
 .vs/*
