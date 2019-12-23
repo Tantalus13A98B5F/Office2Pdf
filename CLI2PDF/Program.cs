@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace Office2Pdf
@@ -21,6 +21,10 @@ namespace Office2Pdf
                 catch (NotSupportedException)
                 {
                     Console.WriteLine("Unsupported file: {0}", fn);
+                }
+                catch (InvalidOperationException)
+                {
+                    Console.WriteLine("Convert failed: {0}", fn);
                 }
             }
         }
@@ -61,7 +65,10 @@ namespace Office2Pdf
             }
             string src = Path.GetFullPath(fn);
             string dst = Path.ChangeExtension(src, "pdf");
-            converter.Convert2Pdf(src, dst);
+            if (!converter.Convert2Pdf(src, dst))
+            {
+                throw new InvalidOperationException();
+            }
             return Path.GetFileName(dst);
         }
     }
